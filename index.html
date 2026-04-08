@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的 2026 财务养成之旅 🌟</title>
+    <style>
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #f7f9fc; color: #333; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        .card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); max-width: 500px; width: 100%; margin-bottom: 20px; }
+        h1 { color: #2c3e50; text-align: center; font-size: 24px; }
+        .progress-container { width: 100%; background-color: #e0e0e0; border-radius: 25px; margin: 20px 0; overflow: hidden; }
+        .progress-bar { height: 24px; background: linear-gradient(90deg, #a1c4fd 0%, #c2e9fb 100%); width: 0%; transition: width 1s ease-in-out; }
+        .stats { display: flex; justify-content: space-between; font-weight: bold; color: #555; }
+        .box { background: #fdfbf7; border-left: 4px solid #fbdc8e; padding: 10px 15px; margin: 15px 0; border-radius: 4px; }
+        .btn { display: block; width: 100%; padding: 12px; background-color: #ffb7b2; color: white; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; transition: background 0.3s; margin-top: 20px; font-weight: bold; }
+        .btn:hover { background-color: #ff9a9e; }
+        #message { margin-top: 20px; padding: 15px; text-align: center; font-style: italic; color: #666; background: #fff5f5; border-radius: 8px; display: none; }
+    </style>
+</head>
+<body>
+
+    <script>
+        const myData = {
+            targetRMB: 100000,    // 你的终极目标
+            currentRMB: 51950,    // 你目前攒下的总额 (人民币)
+            medicalTHB: 2000      // 医保小金库 (泰铢)
+        };
+    </script>
+    <div class="card">
+        <h1>🎯 2026 攒钱大作战</h1>
+        <p style="text-align: center; color: #7f8c8d;">保持真诚与乐观，被动收入的种子正在发芽！</p>
+        
+        <div class="progress-container">
+            <div class="progress-bar" id="bar"></div>
+        </div>
+        
+        <div class="stats">
+            <span id="current-text">已攒: 0</span>
+            <span>目标: 100,000 RMB</span>
+        </div>
+
+        <div class="box">
+            <p>🏥 <b>医保小金库：</b> 目前余额 <span id="medical-text" style="color:#e74c3c;">0</span> THB</p>
+            <p style="font-size: 12px; color: #888;">* 每个月安安稳稳存下 26,700 泰铢，剩下的就尽情享受普吉岛的阳光吧！</p>
+        </div>
+
+        <button class="btn" onclick="giveMeEnergy()">✨ 点击获取今日管家建议与拥抱 ✨</button>
+        <div id="message"></div>
+    </div>
+
+    <script>
+        // 计算百分比并显示
+        const percentage = (myData.currentRMB / myData.targetRMB) * 100;
+        document.getElementById('bar').style.width = percentage + '%';
+        document.getElementById('current-text').innerText = '已攒: ' + myData.currentRMB + ' RMB';
+        document.getElementById('medical-text').innerText = myData.medicalTHB;
+
+        // 温暖的鼓励语料库
+        const messages = [
+            "你真的做得很好！财务健康度超高，记得下个月也要给自己买杯好喝的咖啡哦。☕️",
+            "稳步向前！下半年的涨薪会让你更轻松。现在的你，只需要享受按部就班的快乐。🌟",
+            "存钱是为了更好地看世界！别忘了7月份的甜蜜旅行，把预算花在刀刃上，开心最重要！✈️",
+            "偶尔花超了也不要自责，你有着极强的适应能力，随时可以调整节奏。给你一个大大的拥抱！🤗",
+            "距离10万目标又近了一步！把闲置物品断舍离的你，现在对生活一定有了更清晰的掌控感吧！💪"
+        ];
+
+        function giveMeEnergy() {
+            const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+            const msgBox = document.getElementById('message');
+            msgBox.innerText = randomMsg;
+            msgBox.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
